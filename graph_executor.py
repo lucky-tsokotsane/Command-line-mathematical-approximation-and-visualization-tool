@@ -47,3 +47,16 @@ def original_graph_plotter(function_equation, problem_point):
     plt.title = "f(x) = x**(1/4)"
     plt.plot(x_variables, y_variables)
     plt.show()
+
+    # approximation_graph_plotter
+    x_variables = []
+    y_variables = []
+
+    for r in range(0, problem_point + 1):
+        function_result = linear_value_approximator(r)
+        x_variables.append(r)
+        y_variables.append(function_result)
+
+    plt.title = "Approximation of the derivative: f(x) = x**(1/4)"
+    plt.plot(x_variables, y_variables)
+    plt.show()
