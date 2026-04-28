@@ -38,11 +38,9 @@ if __name__ == "__main__":
                     decimal_num += 1
 
                 print(f"The program is correct to {decimal_num} decimal places.")
-
-            original_graph_plotter(f_eq, prob_point)
         else:
             print("Please choose one of the option available (1 or 2).")
-    except TypeError:
-        print("Please enter the correct data type: int (numbers).")
-    except ValueError:
+        
+        original_graph_plotter(f_eq, prob_point, option_num)
+    except ValueError or TypeError:
         print("Please enter the correct data type: int (numbers).")

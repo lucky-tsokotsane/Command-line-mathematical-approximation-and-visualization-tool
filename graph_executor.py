@@ -35,27 +35,25 @@ def linear_value_approximator(problem_point):
     return (deriv_f.subs(x, tabular_point(f_eq, problem_point))) * (problem_point - tabular_point(f_eq, problem_point)) + f_eq.subs(x, tabular_point(f_eq, problem_point))
 
 
-def original_graph_plotter(function_equation, problem_point):
-    x_variables = []
-    y_variables = []
+def original_graph_plotter(function_equation, problem_point, option_point=1):
+    variables_x = []
+    variables_y = []
 
-    for k in range(0, problem_point + 1):
-        function_result = function_equation.subs(x, k)
-        x_variables.append(k)
-        y_variables.append(function_result)
+    if option_point == 1:
+        for i in range(0, problem_point + 1):
+            function_result = function_equation.subs(x, i)
+            la_function_result = linear_value_approximator(i)
 
-    plt.title = "f(x) = x**(1/4)"
-    plt.plot(x_variables, y_variables)
-    plt.show()
+            variables_x.append(i)
+            variables_y.append([function_result, la_function_result])
+    elif option_point == 2:
+        for i in range(0, problem_point + 1):
+            function_result = function_equation.subs(x, i)
+            ta_function_result = taylor_polynomial_function(i, option_point)
 
-    # approximation_graph_plotter
-    x_variables = []
-    y_variables = []
 
-    for r in range(0, problem_point + 1):
-        function_result = linear_value_approximator(r)
-        x_variables.append(r)
-        y_variables.append(function_result)
-        
-    plt.plot(x_variables, y_variables)
-    plt.show()
+            variables_x.append(i)
+            variables_y.append([function_result, ta_function_result])
+
+    plt.plot(variables_x, variables_y)
+    plt.savefig("Gradient_graph.jpg")
