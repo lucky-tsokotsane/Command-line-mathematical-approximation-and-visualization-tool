@@ -55,5 +55,8 @@ def original_graph_plotter(function_equation, problem_point, option_point=1):
             variables_x.append(i)
             variables_y.append([function_result, ta_function_result])
 
+    plt.title("Graph of the original function and the approximated function")
+    plt.xlabel("x-variables")
+    plt.ylabel("y-variables")
     plt.plot(variables_x, variables_y)
     plt.savefig("Gradient_graph.jpg")
