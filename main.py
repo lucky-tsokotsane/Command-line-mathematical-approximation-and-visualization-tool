@@ -49,5 +49,7 @@ if __name__ == "__main__":
             print("Please choose one of the option available (1 or 2).")
 
         original_graph_plotter(f_eq, prob_point, option_num)
-    except ValueError or TypeError:
+    except (ValueError, TypeError):
         print("Please enter the correct data type: int (numbers).")
+    except IndexError:
+        print("It seems like you have chosen the Taylor Approximation method, this methods excpects three arguments (problem point problem point polynomial_order). Please enter all the required arguments.")
