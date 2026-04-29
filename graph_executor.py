@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import sympy as sp
 
 x = sp.symbols('x')
-f_eq = x**(1/3)
+f_eq = x**(1/2)
 deriv_f = sp.diff(f_eq)
 
 def tabular_point(function_equation, problem_point):
